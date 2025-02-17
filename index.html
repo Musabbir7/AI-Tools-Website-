@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Website | Remove Background & More</title>
+  <meta name="description" content="Unleash your creativity with AI tools. Remove backgrounds, generate images from text, and erase parts of images effortlessly using advanced AI technology.">
+  <meta name="keywords" content="AI background remover, AI image generator, AI inpainting tool, remove background from image online, generate images from text free, erase image parts, AI photo editing tools,remove bg">
+  <meta name="author" content="REMOVEAT AI">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="AI Tools Website | Remove Background, Generate Images, AI Inpainting">
+  <meta property="og:description" content="Unleash your creativity with AI tools. Remove backgrounds, generate images from text, and erase parts of images effortlessly using advanced AI technology.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.removeat.in">
+  <meta property="og:image" content="https://www.removeat.in/images/og-image.jpg">
+  <link rel="canonical" href="https://www.removeat.in">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #6a11cb, #2575fc, #6a11cb, #2575fc);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    header .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger-menu .line {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #2575fc;
+    }
+
+    .btn-login {
+      background: #2575fc;
+      padding: 8px 16px;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn-login:hover {
+      background: #1a5bbf;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 5%;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #e0e0e0;
+    }
+
+    .btn-primary {
+      background: #2575fc;
+      padding: 12px 24px;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+
+    .btn-primary:hover {
+      background: #1a5bbf;
+    }
+
+    .features {
+      display: none; /* Hidden by default */
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 5%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      animation: slideUp 1s ease-in-out;
+      gap: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .feature p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    .upload-area {
+      border: 2px dashed #2575fc;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    .upload-area:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #2575fc;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .text-input::placeholder {
+      color: #e0e0e0;
+    }
+
+    .btn-feature {
+      background: #2575fc;
+      padding: 12px 24px;
+      border-radius: 5px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .btn-feature:hover {
+      background: #1a5bbf;
+    }
+
+    .output-image {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .download-options {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .download-options button {
+      background: #2575fc;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      margin: 5px;
+      transition: background 0.3s ease;
+      font-size: 14px;
+    }
+
+    .download-options button:hover {
+      background: #1a5bbf;
+    }
+
+    /* Blog Section */
+    .blog {
+      display: none; /* Hidden by default */
+      padding: 40px 5%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    .blog h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .blog-post {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-post h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .blog-post p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    .blog-post a {
+      color: #2575fc;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .blog-post a:hover {
+      color: #1a5bbf;
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid #2575fc;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Canvas for Inpainting */
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .canvas-container canvas {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: crosshair;
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      header .logo {
+        font-size: 18px;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      .btn-login {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 80px 5%;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .btn-primary {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .features {
+        padding: 20px 5%;
+      }
+
+      .feature {
+        padding: 15px;
+      }
+
+      .feature h2 {
+        font-size: 18px;
+      }
+
+      .feature p {
+        font-size: 12px;
+      }
+
+      .text-input {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .btn-feature {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+
+      .download-options button {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      .blog {
+        padding: 20px 5%;
+      }
+
+      .blog h2 {
+        font-size: 24px;
+      }
+
+      .blog-post h3 {
+        font-size: 18px;
+      }
+
+      .blog-post p {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">REMOVEAT AI</div>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#features" onclick="showFeatures()">Features</a></li>
+        <li><a href="#blog" onclick="showBlog()">Blog</a></li>
+        <li><a href="#login" class="btn-login">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Unleash Your Creativity with AI</h1>
+    <p>Remove backgrounds, generate images, and erase parts of images effortlessly & download in 4k 100% free.</p>
+    <a href="#features" class="btn-primary" onclick="showFeatures()">Get Started</a>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature">
+      <h2>Background Remover</h2>
+      <p>Upload an image and remove the background with AI.</p>
+      <div class="upload-area" onclick="document.getElementById('bg-remove-input').click()">
+        <p id="upload-text">Click to upload an image</p>
+        <input type="file" id="bg-remove-input" accept="image/*" style="display: none;" onchange="handleImageUpload()">
+      </div>
+      <button class="btn-feature" onclick="removeBackground()">Remove Background</button>
+      <div id="bg-remove-loading" class="loading-spinner" style="display: none;"></div>
+      <p id="bg-remove-loading-text" class="loading-text" style="display: none;">Removing background...</p>
+      <img id="bg-remove-output" src="" alt="Output Image" class="output-image" style="display: none;">
+      <div id="bg-download-options" class="download-options">
+        <button onclick="downloadImage('bg-remove-output', 'HD')">Download HD</button>
+        <button onclick="downloadImage('bg-remove-output', 'Full HD')">Download Full HD</button>
+        <button onclick="downloadImage('bg-remove-output', '4K')">Download 4K</button>
+      </div>
+    </div>
+    <div class="feature">
+      <h2>Text to Image</h2>
+      <p>Generate stunning images from text descriptions.</p>
+      <input type="text" id="text-to-image-input" class="text-input" placeholder="Enter text...">
+      <button class="btn-feature" onclick="generateImage()">Generate Image</button>
+      <div id="text-to-image-loading" class="loading-spinner" style="display: none;"></div>
+      <p id="text-to-image-loading-text" class="loading-text" style="display: none;">Generating image...</p>
+      <img id="text-to-image-output" src="" alt="Generated Image" class="output-image" style="display: none;">
+      <div id="text-download-options" class="download-options">
+        <button onclick="downloadImage('text-to-image-output', 'HD')">Download HD</button>
+        <button onclick="downloadImage('text-to-image-output', 'Full HD')">Download Full HD</button>
+        <button onclick="downloadImage('text-to-image-output', '4K')">Download 4K</button>
+      </div>
+    </div>
+    <div class="feature">
+      <h2>AI Inpainting</h2>
+      <p>Erase parts of an image with AI inpainting.</p>
+      <div class="upload-area" onclick="document.getElementById('inpaint-input').click()">
+        <p id="inpaint-upload-text">Click to upload an image</p>
+        <input type="file" id="inpaint-input" accept="image/*" style="display: none;" onchange="handleInpaintUpload()">
+      </div>
+      <div class="canvas-container">
+        <canvas id="inpaint-canvas"></canvas>
+      </div>
+      <button class="btn-feature" onclick="eraseParts()">Erase Selected Parts</button>
+      <div id="inpaint-loading" class="loading-spinner" style="display: none;"></div>
+      <p id="inpaint-loading-text" class="loading-text" style="display: none;">Erasing parts...</p>
+      <img id="inpaint-output" src="" alt="Output Image" class="output-image" style="display: none;">
+      <div id="inpaint-download-options" class="download-options">
+        <button onclick="downloadImage('inpaint-output', 'HD')">Download HD</button>
+        <button onclick="downloadImage('inpaint-output', 'Full HD')">Download Full HD</button>
+        <button onclick="downloadImage('inpaint-output', '4K')">Download 4K</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <h2>Blog</h2>
+    <div class="blog-post">
+      <h3>How AI is Revolutionizing Image Editing</h3>
+      <p>Discover how AI tools like background removal, image generation, and inpainting are transforming the way we edit images. Learn about the latest advancements and how you can use them to enhance your creativity.</p>
+      <a href="#">Tools</a>
+    </div>
+    <div class="blog-post">
+      <h3>Top 5 AI Tools for Creatives in 2023</h3>
+      <p>Explore the top AI-powered tools that are making waves in the creative industry. From image editing to video production, these tools are a must-have for every creative professional.</p>
+      <a href="#">Thanks</a>
+    </div>
+    <div class="blog-post">
+      <h3>Getting Started with AI Image Generation</h3>
+      <p>Learn how to generate stunning images from text descriptions using AI. This guide will walk you through the process and help you create amazing visuals effortlessly.</p>
+      <a href="#">Read More</a>
+    </div>
+  </section>
+
+  <script>
+    // Remove.bg API Key
+    const REMOVE_BG_API_KEY = 'EUcN2hmXV2dRwh3VkhUt8Bno';
+    // Hugging Face API Key
+    const HUGGING_FACE_API_KEY = "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";
+    // Magic Studio API Key
+    const MAGIC_STUDIO_API_KEY = "LtBcQTK1qHwLMKdmJU2c_63E8";
+
+    // Toggle Menu Function
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('active');
+    }
+
+    // Show Features Section
+    function showFeatures() {
+      document.querySelector('.features').style.display = 'flex';
+      document.querySelector('.blog').style.display = 'none'; // Hide Blog Section
+    }
+
+    // Show Blog Section
+    function showBlog() {
+      document.querySelector('.blog').style.display = 'block';
+      document.querySelector('.features').style.display = 'none'; // Hide Features Section
+    }
+
+    // Handle Image Upload for Background Remover
+    function handleImageUpload() {
+      const uploadText = document.getElementById('upload-text');
+      uploadText.textContent = 'Image Uploaded!';
+    }
+
+    // Handle Image Upload for Inpainting
+    function handleInpaintUpload() {
+      const uploadText = document.getElementById('inpaint-upload-text');
+      const canvas = document.getElementById('inpaint-canvas');
+      const ctx = canvas.getContext('2d');
+      const input = document.getElementById('inpaint-input');
+
+      if (input.files.length === 0) return;
+
+      const img = new Image();
+      img.src = URL.createObjectURL(input.files[0]);
+      img.onload = () => {
+        const maxWidth = 400; // Max width for canvas
+        const scale = maxWidth / img.width;
+        canvas.width = maxWidth;
+        canvas.height = img.height * scale;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        uploadText.textContent = 'Image Uploaded!';
+      };
+    }
+
+    // Background Remover Function
+    async function removeBackground() {
+      const input = document.getElementById('bg-remove-input');
+      const output = document.getElementById('bg-remove-output');
+      const downloadOptions = document.getElementById('bg-download-options');
+      const loadingSpinner = document.getElementById('bg-remove-loading');
+      const loadingText = document.getElementById('bg-remove-loading-text');
+
+      if (input.files.length === 0) {
+        alert('Please upload an image.');
+        return;
+      }
+
+      // Show loading state
+      loadingSpinner.style.display = 'block';
+      loadingText.style.display = 'block';
+
+      const formData = new FormData();
+      formData.append('image_file', input.files[0]);
+
+      try {
+        const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': REMOVE_BG_API_KEY,
+          },
+          body: formData,
+        });
+
+        if (!response.ok) throw new Error('Failed to remove background.');
+
+        const blob = await response.blob();
+        output.src = URL.createObjectURL(blob);
+        output.style.display = 'block';
+        downloadOptions.style.display = 'block';
+      } catch (error) {
+        console.error(error);
+        alert('Error removing background. Please try again.');
+      } finally {
+        // Hide loading state
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
+      }
+    }
+
+    // Text-to-Image Function
+    async function generateImage() {
+      const input = document.getElementById('text-to-image-input');
+      const output = document.getElementById('text-to-image-output');
+      const downloadOptions = document.getElementById('text-download-options');
+      const loadingSpinner = document.getElementById('text-to-image-loading');
+      const loadingText = document.getElementById('text-to-image-loading-text');
+
+      if (!input.value.trim()) {
+        alert('Please enter some text.');
+        return;
+      }
+
+      // Show loading state
+      loadingSpinner.style.display = 'block';
+      loadingText.style.display = 'block';
+
+      try {
+        const response = await fetch('https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${HUGGING_FACE_API_KEY}`,
+          },
+          body: JSON.stringify({ inputs: input.value }),
+        });
+
+        if (!response.ok) throw new Error('Failed to generate image.');
+
+        const blob = await response.blob();
+        output.src = URL.createObjectURL(blob);
+        output.style.display = 'block';
+        downloadOptions.style.display = 'block';
+      } catch (error) {
+        console.error(error);
+        alert('Error generating image. Please try again.');
+      } finally {
+        // Hide loading state
+        loadingSpinner.style.display = 'none';
+        loadingText.style.display = 'none';
+      }
+    }
+
+    // AI Inpainting Function
+    async function eraseParts() {
+      const canvas = document.getElementById('inpaint-canvas');
+      const output = document.getElementById('inpaint-output');
+      const downloadOptions = document.getElementById('inpaint-download-options');
+      const loadingSpinner = document.getElementById('inpaint-loading');
+      const loadingText = document.getElementById('inpaint-loading-text');
+
+      if (!canvas.toDataURL().includes('image')) {
+        alert('Please upload an image first.');
+        return;
+      }
+
+      // Show loading state
+      loadingSpinner.style.display = 'block';
+      loadingText.style.display = 'block';
+
+      const maskCanvas = document.createElement('canvas');
+      maskCanvas.width = canvas.width;
+      maskCanvas.height = canvas.height;
+      const maskCtx = maskCanvas.getContext('2d');
+      maskCtx.drawImage(canvas, 0, 0);
+
+      // Convert canvas to blob
+      canvas.toBlob(async (blob) => {
+        const formData = new FormData();
+        formData.append('image', blob, 'image.png');
+        formData.append('mask', maskCanvas.toDataURL(), 'mask.png');
+
+        try {
+          const response = await fetch('https://api.magicstudio.com/inpaint', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${MAGIC_STUDIO_API_KEY}`,
+            },
+            body: formData,
+          });
+
+          if (!response.ok) throw new Error('Failed to erase parts.');
+
+          const resultBlob = await response.blob();
+          output.src = URL.createObjectURL(resultBlob);
+          output.style.display = 'block';
+          downloadOptions.style.display = 'block';
+        } catch (error) {
+          console.error(error);
+          alert('Error erasing parts. Please try again.');
+        } finally {
+          // Hide loading state
+          loadingSpinner.style.display = 'none';
+          loadingText.style.display = 'none';
+        }
+      }, 'image/png');
+    }
+
+    // Function to resize and enhance image quality
+    function resizeImage(image, width, height, quality) {
+      return new Promise((resolve) => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(image, 0, 0, width, height);
+        canvas.toBlob((blob) => resolve(blob), 'image/png', quality);
+      });
+    }
+
+    // Download Image Function with Resolution Options
+    async function downloadImage(imageId, resolution) {
+      const image = document.getElementById(imageId);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      let width, height, quality;
+      switch (resolution) {
+        case 'HD':
+          width = 1280;
+          height = 720;
+          quality = 0.9;
+          break;
+        case 'Full HD':
+          width = 1920;
+          height = 1080;
+          quality = 0.95;
+          break;
+        case '4K':
+          width = 3840;
+          height = 2160;
+          quality = 1;
+          break;
+        default:
+          width = image.naturalWidth;
+          height = image.naturalHeight;
+          quality = 1;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+      ctx.drawImage(image, 0, 0, width, height);
+
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png', quality);
+      link.download = `image-${resolution}.png`;
+      link.click();
+    }
+
+    // Canvas Drawing for Inpainting
+    const canvas = document.getElementById('inpaint-canvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDrawing) {
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.strokeStyle = '#2575fc';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      isDrawing = false;
+    });
+  </script>
+</body>
+</html>
